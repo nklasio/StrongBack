@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'username', 'phonenumber', 'password_set'
     ];
 
     /**
@@ -36,4 +36,11 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public static function search($query) {
+        return empty($query) ? static::query()
+            : static::where('name', 'like', '%'.$query.'%')
+                 ->orWhere('email', 'like', '%'.$query.'%')
+                 ->orWhere('username', 'like', '%'.$query.'%');
+    }
 }

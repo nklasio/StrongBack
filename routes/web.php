@@ -13,15 +13,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::view('/', 'welcome')->name('home');
+Route::middleware(['auth', 'password.set'])->group(function() {
+    Route::view('/', 'welcome')->name('home');
+    Route::get('/users', 'UserController@index')
+        ->name('users');
+});
 
 Route::layout('layouts.auth')->group(function () {
     Route::middleware('guest')->group(function () {
         Route::livewire('login', 'auth.login')
             ->name('login');
 
-        Route::livewire('register', 'auth.register')
-            ->name('register');
+        //Route::livewire('register', 'auth.register')
+        //    ->name('register');
     });
 
     Route::livewire('password/reset', 'auth.passwords.email')
@@ -41,6 +45,7 @@ Route::layout('layouts.auth')->group(function () {
 });
 
 Route::middleware('auth')->group(function () {
+    Route::livewire('password/set', 'auth.passwords.set')->name('password.set');
     Route::get('email/verify/{id}/{hash}', 'Auth\EmailVerificationController')
         ->middleware('signed')
         ->name('verification.verify');
