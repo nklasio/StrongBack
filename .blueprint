@@ -1,0 +1,17 @@
+created:
+    - database/migrations/2020_08_01_113328_create_cooperations_table.php
+    - database/migrations/2020_08_01_113329_create_action_descriptions_table.php
+    - database/migrations/2020_08_01_113330_create_actions_table.php
+    - app/Cooperation.php
+    - app/ActionDescription.php
+    - app/Action.php
+    - database/factories/CooperationFactory.php
+    - database/factories/ActionDescriptionFactory.php
+    - database/factories/ActionFactory.php
+models:
+    Customer: { anrede: string, name: string, vorname: string, telefonnummer: 'string nullable', telefon_mobil: 'string nullable', email: 'string nullable', strasse: 'string nullable', hausnummer: 'string nullable', platz: 'string nullable', ort: 'string nullable', geburtsdatum: 'string nullable', relationships: { hasMany: 'Process, Contract' } }
+    Process: { user_id: id, relationships: { belongsTo: Customer } }
+    Contract: { customer_id: id, contractIdentifier: unsingedInteger }
+    Cooperation: { name: string }
+    ActionDescription: { name: string }
+    Action: { name: string }

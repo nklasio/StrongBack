@@ -1,0 +1,22 @@
+models:
+  Customer:
+    anrede: string
+    name: string
+    vorname: string
+    telefonnummer: string nullable
+    telefon_mobil: string nullable
+    email: string nullable
+    strasse: string nullable
+    hausnummer: string nullable
+    platz: string nullable
+    ort: string nullable
+    geburtsdatum: string nullable
+    relationships:
+      hasMany: Process, Contract
+  Process:
+    user_id: id
+    relationships:
+      belongsTo: Customer
+  Contract:
+    customer_id: id
+    contractIdentifier: unsingedInteger

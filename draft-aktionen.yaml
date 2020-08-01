@@ -1,0 +1,7 @@
+models:
+  Cooperation:
+    name: string
+  ActionDescription:
+    name: string
+  Action:
+    name: string

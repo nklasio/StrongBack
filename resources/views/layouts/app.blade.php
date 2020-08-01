@@ -10,22 +10,25 @@
     <aside class="relative bg-green-300 h-screen w-64 hidden sm:block shadow-xl">
         <div class="p-6">
             <span class="text-white text-3xl font-semibold">StrongBack</span>
-            <button class="w-full bg-white cta-btn font-semibold py-2 mt-5 rounded-br-lg rounded-bl-lg rounded-tr-lg shadow-lg hover:shadow-xl hover:bg-gray-300 flex items-center justify-center">
+            <button
+                class="w-full bg-white cta-btn font-semibold py-2 mt-5 rounded-br-lg rounded-bl-lg rounded-tr-lg shadow-lg hover:shadow-xl hover:bg-gray-300 flex items-center justify-center">
                 <i class="fas fa-plus mr-3"></i> New Report
             </button>
         </div>
         <nav class="text-white text-base font-semibold pt-3">
-        <a href="{{ route('home') }}" class="flex items-center active-nav-link text-white py-4 pl-6 nav-item">
+            <a href="{{ route('home') }}"
+                class="flex items-center active-nav-link text-white py-4 pl-6 nav-item">
                 <i class="fas fa-tachometer-alt mr-3"></i>
                 Dashboard
             </a>
-        <a href="{{ route('users') }}" class="flex items-center active-nav-link text-white py-4 pl-6 nav-item">
+            <a href="{{ route('users') }}"
+                class="flex items-center active-nav-link text-white py-4 pl-6 nav-item">
                 <i class="fas fa-users mr-3"></i>
                 Users
             </a>
-            <a href="blank.html" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
+            <a href="{{ route('processes') }}" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
                 <i class="fas fa-sticky-note mr-3"></i>
-                Blank Page
+                Processes
             </a>
             <a href="tables.html" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
                 <i class="fas fa-table mr-3"></i>
@@ -39,15 +42,20 @@
                 <i class="fas fa-tablet-alt mr-3"></i>
                 Tabbed Content
             </a>
-            <a href="calendar.html" class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
+            <a href="calendar.html"
+                class="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item">
                 <i class="fas fa-calendar mr-3"></i>
                 Calendar
             </a>
         </nav>
-        <a href="#" class="absolute w-full upgrade-btn bottom-0 active-nav-link text-white flex items-center justify-center py-4">
-            <i class="fas fa-sign-out-alt mr-3"></i>
-            @lang("interface.logout")
-        </a>
+        <form action="{{ route('logout') }}" method="POST">
+            @csrf
+            <button type="submit"
+                class="absolute w-full upgrade-btn bottom-0 active-nav-link text-white flex items-center justify-center py-4">
+                <i class="fas fa-sign-out-alt mr-3"></i>
+                @lang("interface.logout")
+            </button>
+        </form>
     </aside>
 
     <div class="w-full flex flex-col h-screen overflow-y-hidden">
@@ -64,7 +72,8 @@
     </div>
 
     <!-- Font Awesome -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" integrity="sha256-KzZiKy0DWYsnwMF+X1DvQngQ2/FxF7MF3Ff72XcpuPs=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"
+        integrity="sha256-KzZiKy0DWYsnwMF+X1DvQngQ2/FxF7MF3Ff72XcpuPs=" crossorigin="anonymous"></script>
 
 </div>
 

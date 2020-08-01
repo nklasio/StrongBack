@@ -17,6 +17,8 @@ Route::middleware(['auth', 'password.set'])->group(function() {
     Route::view('/', 'welcome')->name('home');
     Route::get('/users', 'UserController@index')
         ->name('users');
+    Route::livewire('/processes', 'processes')
+        ->name('processes');
 });
 
 Route::layout('layouts.auth')->group(function () {
